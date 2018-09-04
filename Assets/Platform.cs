@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class Platform : MonoBehaviour {
 
-	private Rigidbody2D _LeftGrassRB;
-	private Rigidbody2D _RightGrassRB;
-
-	private Grass _RightGrass;
-	private Grass _LeftGrass;
-
 	private Rigidbody2D _LeftGrassHookRB;
 	private Rigidbody2D _RightGrassHookRB;
 
@@ -19,12 +13,6 @@ public class Platform : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		_LeftGrassRB = transform.Find("LeftGrass").gameObject.GetComponent<Rigidbody2D>();
-		_RightGrassRB = transform.Find("RightGrass").gameObject.GetComponent<Rigidbody2D>();
-
-		_RightGrass = transform.Find("RightGrass").gameObject.GetComponent<Grass>();
-		_LeftGrass = transform.Find("LeftGrass").gameObject.GetComponent<Grass>();
-
 		_RightGrassHookRB = transform.Find("RightGrass").Find("Hook").gameObject.GetComponent<Rigidbody2D>();
 		_LeftGrassHookRB = transform.Find("LeftGrass").Find("Hook").gameObject.GetComponent<Rigidbody2D>();
 
