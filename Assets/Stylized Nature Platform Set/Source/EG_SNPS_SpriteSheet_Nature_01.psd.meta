@@ -1,0 +1,522 @@
+fileFormatVersion: 2
+guid: 7e77835dc22ca48a78e6195100aca3b4
+timeCreated: 1488822293
+licenseType: Store
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Tree_01
+    21300002: Tree_02
+    21300004: Tree_03
+    21300006: Tree_04
+    21300008: Ground_Large
+    21300010: Ground_Small
+    21300012: Ground_Medium
+    21300014: Bush_Large
+    21300016: Bush_Small
+    21300018: Grass_02
+    21300020: Grass_01
+    21300022: Grass_03
+    21300024: Grass_04
+    21300026: EG_SPS_SpriteSheet_Nature_01_14
+    21300028: Flower_Small_01
+    21300030: Flower_Small_02
+    21300032: Flower_Small_03
+    21300034: Flower_Small_04
+    21300036: Flower_Large_01
+    21300038: Flower_Large_02
+    21300040: Flower_Large_03
+    21300042: Rock_01
+    21300044: Rock_04
+    21300046: Rock_06
+    21300048: Rock_08
+    21300050: Vine_Large_01
+    21300052: Vine_Large_02
+    21300054: Vine_Large_03
+    21300056: Vine_Small_01
+    21300058: Rock_02
+    21300060: Rock_03
+    21300062: Rock_05
+    21300064: Rock_07
+    21300066: Vine_Small_02
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Tree_01
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 2901
+        width: 764
+        height: 1152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tree_02
+      rect:
+        serializedVersion: 2
+        x: 961
+        y: 2901
+        width: 701
+        height: 1173
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tree_03
+      rect:
+        serializedVersion: 2
+        x: 1700
+        y: 2901
+        width: 689
+        height: 832
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tree_04
+      rect:
+        serializedVersion: 2
+        x: 2513
+        y: 2901
+        width: 911
+        height: 1110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ground_Large
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 1941
+        width: 3251
+        height: 875
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ground_Small
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 939
+        width: 1034
+        height: 853
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ground_Medium
+      rect:
+        serializedVersion: 2
+        x: 1330
+        y: 939
+        width: 2069
+        height: 853
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Bush_Large
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 597
+        width: 517
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Bush_Small
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 597
+        width: 393
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Grass_02
+      rect:
+        serializedVersion: 2
+        x: 1257
+        y: 597
+        width: 147
+        height: 171
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Grass_01
+      rect:
+        serializedVersion: 2
+        x: 1478
+        y: 597
+        width: 49
+        height: 171
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Grass_03
+      rect:
+        serializedVersion: 2
+        x: 1589
+        y: 597
+        width: 259
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Grass_04
+      rect:
+        serializedVersion: 2
+        x: 1996
+        y: 597
+        width: 492
+        height: 213
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Flower_Small_01
+      rect:
+        serializedVersion: 2
+        x: 2661
+        y: 597
+        width: 147
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Flower_Small_02
+      rect:
+        serializedVersion: 2
+        x: 2858
+        y: 597
+        width: 135
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Flower_Small_03
+      rect:
+        serializedVersion: 2
+        x: 3067
+        y: 598
+        width: 74
+        height: 170
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Flower_Small_04
+      rect:
+        serializedVersion: 2
+        x: 3215
+        y: 597
+        width: 55
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Flower_Large_01
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 85
+        width: 147
+        height: 427
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Flower_Large_02
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 66
+        width: 111
+        height: 446
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Flower_Large_03
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 64
+        width: 123
+        height: 427
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Rock_01
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 299
+        width: 308
+        height: 170
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Rock_04
+      rect:
+        serializedVersion: 2
+        x: 1216
+        y: 299
+        width: 258
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Rock_06
+      rect:
+        serializedVersion: 2
+        x: 1626
+        y: 299
+        width: 110
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Rock_08
+      rect:
+        serializedVersion: 2
+        x: 1799
+        y: 299
+        width: 221
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Vine_Large_01
+      rect:
+        serializedVersion: 2
+        x: 2168
+        y: 32
+        width: 246
+        height: 501
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Vine_Large_02
+      rect:
+        serializedVersion: 2
+        x: 2463
+        y: 32
+        width: 345
+        height: 448
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Vine_Large_03
+      rect:
+        serializedVersion: 2
+        x: 2907
+        y: 64
+        width: 234
+        height: 448
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Vine_Small_01
+      rect:
+        serializedVersion: 2
+        x: 3196
+        y: 299
+        width: 277
+        height: 213
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Rock_02
+      rect:
+        serializedVersion: 2
+        x: 813
+        y: 85
+        width: 147
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Rock_03
+      rect:
+        serializedVersion: 2
+        x: 1035
+        y: 85
+        width: 147
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Rock_05
+      rect:
+        serializedVersion: 2
+        x: 1256
+        y: 85
+        width: 345
+        height: 171
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Rock_07
+      rect:
+        serializedVersion: 2
+        x: 1749
+        y: 85
+        width: 246
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Vine_Small_02
+      rect:
+        serializedVersion: 2
+        x: 3153
+        y: 43
+        width: 246
+        height: 212
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

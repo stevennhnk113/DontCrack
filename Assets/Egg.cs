@@ -33,9 +33,5 @@ public class Egg : MonoBehaviour {
 		//}
 	}
 
-	public void OnLand()
-	{
-		Debug.Log("Landed");
-		//_MyRB.AddTorque(20);
-	}
+
 }

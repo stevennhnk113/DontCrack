@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class EggController : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class EggController : MonoBehaviour
 	private bool m_Grounded;            // Whether or not the player is grounded.
 	private Rigidbody2D m_Rigidbody2D;
 	private Vector3 m_Velocity = Vector3.zero;
+	float movement = 0f;
+	public float RollingSpeed = 40f;
 
 	[Header("Events")]
 	[Space]
@@ -21,12 +24,19 @@ public class EggController : MonoBehaviour
 	[System.Serializable]
 	public class BoolEvent : UnityEvent<bool> { }
 
+	public float MaxVelocity = -15f;
+
 	private void Awake()
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
 
 		if (OnLandEvent == null)
 			OnLandEvent = new UnityEvent();
+	}
+
+	void Update()
+	{
+		movement = Input.GetAxisRaw("Horizontal") * RollingSpeed;
 	}
 
 	private void FixedUpdate()
@@ -42,8 +52,14 @@ public class EggController : MonoBehaviour
 			if (colliders[i].gameObject != gameObject)
 			{
 				m_Grounded = true;
+				
+				if(movement != 0f)
+				{
+					Move(movement * Time.fixedDeltaTime, false, false);
+				}
+
 				if (!wasGrounded)
-					OnLandEvent.Invoke();
+					OnLand();
 			}
 		}
 	}
@@ -58,6 +74,17 @@ public class EggController : MonoBehaviour
 			Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
 			// And then smoothing it out and applying it to the character
 			m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
+		}
+	}
+
+	public void OnLand()
+	{
+		Debug.Log("Landed");
+		Debug.Log(m_Rigidbody2D.velocity);
+
+		if (m_Rigidbody2D.velocity.y < MaxVelocity)
+		{
+			Debug.Log("Crack");
 		}
 	}
 }
