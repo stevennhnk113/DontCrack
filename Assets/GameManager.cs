@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour {
 
 	double CurrentLowestY;
 
-	Vector3 CurrentLowestPosition;
+	public Vector3 CurrentLowestPosition;
 
 	public float DistantBetweenPlatform = 5;
 
@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour {
 	private GameObject BottomPlatForm;
 	private Vector3 BottomPlatformSize;
 
-	public int InitialNumberOfGrass = 10;
+	public int InitialNumberOfGrass = 50;
 
 	private float ScreenHeight;
 	private float ScreenWidth;
@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour {
 				break;
 		}
 
-		newPlatfrom.transform.position = GetRandomPosition();
+		CurrentLowestPosition = newPlatfrom.transform.position = GetRandomPosition();
 
 		BottomPlatForm = newPlatfrom;
 		PlatformList.Add(BottomPlatForm);
@@ -128,7 +128,12 @@ public class GameManager : MonoBehaviour {
 
 	private void RemovePlatforms()
 	{
+		for(int i = 0; i < NumberOfPlatformToAddOrRemove; i++)
+		{
+			Destroy(PlatformList[i]);
+		}
 		PlatformList.RemoveRange(0, NumberOfPlatformToAddOrRemove);
+
 	}
 
 	enum PlatformType	

@@ -154,12 +154,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c49918df8a16c94bb2f333b84356b0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurrentLowestPosition: {x: 0, y: 0, z: 0}
   DistantBetweenPlatform: 3
   GrassPrefab: {fileID: 1549025934420626, guid: f9a4da694b65a6846a0a42da03e2f62d,
     type: 2}
   HorizontalMovingGrassPrefab: {fileID: 1816539662408238, guid: 7956597905256eb4f83379e6ad6c5973,
     type: 2}
-  InitialNumberOfGrass: 10
+  InitialNumberOfGrass: 20
 --- !u!1 &84135279
 GameObject:
   m_ObjectHideFlags: 0
@@ -861,6 +862,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EggTransform: {fileID: 1862071263}
   OffSet: 2
+  OnReachingBottom:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  GameManager: {fileID: 16049980}
 --- !u!68 &1581949775
 EdgeCollider2D:
   m_ObjectHideFlags: 0
