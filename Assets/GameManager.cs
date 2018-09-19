@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour {
 
 	private const int NumberOfPlatformToAddOrRemove = 10;
 
+	private int Level = 1;
+
 	void Start()
 	{
 		// Getting the screen size
@@ -66,6 +68,11 @@ public class GameManager : MonoBehaviour {
 		RemovePlatforms();
 	}
 
+	public void IncreaseLevel()
+	{
+		Level++;
+	}
+
 	void InitializeFirstFewScence()
 	{
 		System.Random randomGenerator = new System.Random();
@@ -93,21 +100,27 @@ public class GameManager : MonoBehaviour {
 				break;
 		}
 
-		CurrentLowestPosition = newPlatfrom.transform.position = GetRandomPosition();
+		float newPlatformHalfWidth = newPlatfrom.GetComponent<SpriteRenderer>().bounds.size.x / 2;
+		CurrentLowestPosition = newPlatfrom.transform.position = GetRandomPosition(MostLeftX + newPlatformHalfWidth, MostRightX - newPlatformHalfWidth);
 
 		BottomPlatForm = newPlatfrom;
 		PlatformList.Add(BottomPlatForm);
 	}
 
-	private Vector3 GetRandomPosition(float awayDistantFromPreviousPlatform = 0)
+	private Vector3 GetRandomPosition(float mostLeftX, float mostRightX, float awayDistantFromPreviousPlatform = 0)
 	{
 		if(awayDistantFromPreviousPlatform == 0)
 		{
 			// Precision lost when casting to int from float, time 100 to reserve that precision
-			int newMostLeftXInInt = (int)(MostLeftX * 100);
-			int newMostRightXInInt = (int)(MostRightX * 100);
+			int newMostLeftXInInt = (int)(mostLeftX * 100);
+			int newMostRightXInInt = (int)(mostRightX * 100);
 
 			float xPosition = ((float)(RandomGenerator.Next(newMostLeftXInInt, newMostRightXInInt)) / 100);
+
+			if(BottomPlatForm.transform.position.x * xPosition > 0 )
+			{
+				xPosition = -xPosition;
+			}
 
 			return new Vector3(xPosition, BottomPlatForm.transform.position.y - DistantBetweenPlatform);
 		}
