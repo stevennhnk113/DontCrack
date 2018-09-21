@@ -85,7 +85,7 @@ public class EggController : MonoBehaviour
 		if (PreviousVelocity < MaxVelocity)
 		{
 			Time.timeScale = 0;
-			GameObject.Find("Button").gameObject.SetActive(true);
+			GameObject.Find("GameManager").gameObject;
 		}
 	}
 

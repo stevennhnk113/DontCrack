@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour {
 
 	private int Level = 1;
 
+	public GameObject MenuCanvas;
+
 	void Start()
 	{
 		// Getting the screen size
@@ -54,7 +56,7 @@ public class GameManager : MonoBehaviour {
 
 	public void GameOver()
 	{
-
+		MenuCanvas.SetActive(false);
 	}
 
 	public void Restart()
