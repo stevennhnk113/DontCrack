@@ -333,7 +333,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &380636621
 RectTransform:
   m_ObjectHideFlags: 0
@@ -341,7 +341,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 380636620}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 84135280}
@@ -350,7 +350,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: -200.9}
+  m_AnchoredPosition: {x: -0, y: 0}
   m_SizeDelta: {x: 174.82, y: 74.45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &380636622
@@ -915,7 +915,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4823134702372198, guid: f9a4da694b65a6846a0a42da03e2f62d, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.5
+      value: 2.511
       objectReference: {fileID: 0}
     - target: {fileID: 4823134702372198, guid: f9a4da694b65a6846a0a42da03e2f62d, type: 2}
       propertyPath: m_LocalPosition.z
@@ -944,6 +944,14 @@ Prefab:
     - target: {fileID: 1549025934420626, guid: f9a4da694b65a6846a0a42da03e2f62d, type: 2}
       propertyPath: m_Name
       value: FirstGrass
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823134702372198, guid: f9a4da694b65a6846a0a42da03e2f62d, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823134702372198, guid: f9a4da694b65a6846a0a42da03e2f62d, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9a4da694b65a6846a0a42da03e2f62d, type: 2}
@@ -1147,7 +1155,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_GroundCheck: {fileID: 485825375}
-  k_GroundedRadius: 0.5
+  k_GroundedRadius: 0.4
   RollingSpeed: 10
   OnLandEvent:
     m_PersistentCalls:

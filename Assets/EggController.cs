@@ -25,6 +25,7 @@ public class EggController : MonoBehaviour
 	public class BoolEvent : UnityEvent<bool> { }
 
 	public float MaxVelocity = -15f;
+	private float PreviousVelocity = 0;
 
 	private void Awake()
 	{
@@ -37,6 +38,7 @@ public class EggController : MonoBehaviour
 	void Update()
 	{
 		movement = Input.GetAxisRaw("Horizontal") * RollingSpeed;
+		PreviousVelocity = Mathf.Min(PreviousVelocity, m_Rigidbody2D.velocity.y);
 	}
 
 	private void FixedUpdate()
@@ -52,18 +54,13 @@ public class EggController : MonoBehaviour
 			if (colliders[i].gameObject != gameObject)
 			{
 				m_Grounded = true;
-				
 				if(movement != 0f)
 				{
 					Move(movement * Time.fixedDeltaTime, false, false);
 				}
-
-				if (!wasGrounded)
-					OnLand();
 			}
 		}
 	}
-
 
 	public void Move(float move, bool crouch, bool jump)
 	{
@@ -81,10 +78,19 @@ public class EggController : MonoBehaviour
 	{
 		Debug.Log("Landed");
 		Debug.Log(m_Rigidbody2D.velocity);
+	}
 
-		if (m_Rigidbody2D.velocity.y < MaxVelocity)
+	void OnCollisionEnter2D(Collision2D col)
+	{
+		if (PreviousVelocity < MaxVelocity)
 		{
-			Debug.Log("Crack");
+			Time.timeScale = 0;
+			GameObject.Find("Button").gameObject.SetActive(true);
 		}
+	}
+
+	private void GameOver()
+	{
+
 	}
 }
