@@ -35,6 +35,10 @@ public class GameManager : MonoBehaviour {
 
 	void Start()
 	{
+		// Getting the canvas
+		MenuCanvas = GameObject.Find("Canvas");
+		//MenuCanvas.SetActive(false);
+
 		// Getting the screen size
 		Camera camera = GameObject.Find("MainCamera").GetComponent<Camera>();
 		ScreenHeight = 2f * camera.orthographicSize;
