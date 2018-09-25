@@ -31,14 +31,12 @@ public class GameManager : MonoBehaviour {
 
 	private int Level = 1;
 
-	public GameObject MenuCanvas;
+	public GameObject RestartButton;
+
+	public bool IsInitializeScence;
 
 	void Start()
 	{
-		// Getting the canvas
-		MenuCanvas = GameObject.Find("Canvas");
-		//MenuCanvas.SetActive(false);
-
 		// Getting the screen size
 		Camera camera = GameObject.Find("MainCamera").GetComponent<Camera>();
 		ScreenHeight = 2f * camera.orthographicSize;
@@ -55,17 +53,26 @@ public class GameManager : MonoBehaviour {
 
 		PlatformList = new List<GameObject>();
 
-		InitializeFirstFewScence();
+		if(IsInitializeScence)
+		{
+			InitializeFirstFewScence();
+		}
 	}
 
 	public void GameOver()
 	{
-		MenuCanvas.SetActive(false);
+		RestartButton.SetActive(true);
 	}
 
 	public void Restart()
 	{
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+		Time.timeScale = 1;
+	}
+
+	public void EndGame()
+	{
+		Application.Quit();
 	}
 
 	public void AddScene()
