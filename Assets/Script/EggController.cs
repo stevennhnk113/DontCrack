@@ -39,7 +39,15 @@ public class EggController : MonoBehaviour
 
 	void Update()
 	{
-		movement = Input.GetAxisRaw("Horizontal") * RollingSpeed;
+		switch(SystemInfo.deviceType)
+		{
+			case DeviceType.Handheld:
+				movement = Input.acceleration.x * RollingSpeed;
+				break;
+			default:
+				movement = Input.GetAxisRaw("Horizontal") * RollingSpeed;
+				break;
+		}
 		PreviousVelocity = Mathf.Min(PreviousVelocity, m_Rigidbody2D.velocity.y);
 	}
 
