@@ -155,7 +155,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentLowestPosition: {x: 0, y: 0, z: 0}
-  DistantBetweenPlatform: 3
+  SmallestDistantBetweenPlatform: 1
+  BiggestDistantBetweenPlatform: 4
   GrassPrefab: {fileID: 1549025934420626, guid: f9a4da694b65a6846a0a42da03e2f62d,
     type: 2}
   HorizontalMovingGrassPrefab: {fileID: 1816539662408238, guid: 7956597905256eb4f83379e6ad6c5973,
@@ -1216,7 +1217,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4823134702372198, guid: f9a4da694b65a6846a0a42da03e2f62d, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 4823134702372198, guid: f9a4da694b65a6846a0a42da03e2f62d, type: 2}
       propertyPath: m_LocalScale.y

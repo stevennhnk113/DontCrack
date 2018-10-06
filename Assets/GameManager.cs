@@ -8,7 +8,10 @@ public class GameManager : MonoBehaviour {
 
 	public Vector3 CurrentLowestPosition;
 
-	public float DistantBetweenPlatform = 5;
+	public float SmallestDistantBetweenPlatform = 1;
+	public float BiggestDistantBetweenPlatform = 4;
+
+	public float MaxLandingDistant = 1;
 
 	public GameObject GrassPrefab;
 	public GameObject HorizontalMovingGrassPrefab;
@@ -97,10 +100,10 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 		
-	void PlacePlatform(PlatformType type)
+	void PlacePlatform(PlatformType platformType)
 	{
 		GameObject newPlatfrom;
-		switch (type)
+		switch (platformType)
 		{
 			case PlatformType.Grass:
 				newPlatfrom = Instantiate(GrassPrefab, transform);
@@ -114,31 +117,49 @@ public class GameManager : MonoBehaviour {
 		}
 
 		float newPlatformHalfWidth = newPlatfrom.GetComponent<SpriteRenderer>().bounds.size.x / 2;
-		CurrentLowestPosition = newPlatfrom.transform.position = GetRandomPosition(MostLeftX + newPlatformHalfWidth, MostRightX - newPlatformHalfWidth);
+		CurrentLowestPosition = newPlatfrom.transform.position = GetRandomPosition(MostLeftX + newPlatformHalfWidth, MostRightX - newPlatformHalfWidth, newPlatfrom);
 
 		BottomPlatForm = newPlatfrom;
 		PlatformList.Add(BottomPlatForm);
 	}
 
-	private Vector3 GetRandomPosition(float mostLeftX, float mostRightX, float awayDistantFromPreviousPlatform = 0)
+	private Vector3 GetRandomPosition(float mostLeftX, float mostRightX, GameObject newPlatFormObject)
 	{
-		if(awayDistantFromPreviousPlatform == 0)
+		// Precision lost when casting to int from float, time 100 to reserve that precision
+		int newMostLeftXInInt = (int)(mostLeftX * 100);
+		int newMostRightXInInt = (int)(mostRightX * 100);
+
+		float xPosition = ((float)(RandomGenerator.Next(newMostLeftXInInt, newMostRightXInInt)) / 100);
+
+		if (BottomPlatForm.transform.position.x * xPosition > 0)
 		{
-			// Precision lost when casting to int from float, time 100 to reserve that precision
-			int newMostLeftXInInt = (int)(mostLeftX * 100);
-			int newMostRightXInInt = (int)(mostRightX * 100);
-
-			float xPosition = ((float)(RandomGenerator.Next(newMostLeftXInInt, newMostRightXInInt)) / 100);
-
-			if(BottomPlatForm.transform.position.x * xPosition > 0 )
-			{
-				xPosition = -xPosition;
-			}
-
-			return new Vector3(xPosition, BottomPlatForm.transform.position.y - DistantBetweenPlatform);
+			xPosition = -xPosition;
 		}
 
-		return new Vector3();
+		//var platformType = newPlatFormObject.GetComponent("Platform")
+		//switch (platformType)
+		//{
+		//	case PlatformType.Grass:
+		//}
+
+		var newYPosition = BottomPlatForm.transform.position.y - GetVerticalDistantBetweenPlatform();
+		return new Vector3(xPosition, newYPosition);
+	}
+
+	private float GetVerticalDistantBetweenPlatform()
+	{
+		return GetRandomNumberBetweenTwoFloat(SmallestDistantBetweenPlatform, BiggestDistantBetweenPlatform);
+	}
+
+	private float GetRandomNumberBetweenTwoFloat(float lowerLimitFloat, float upperLimitFloat)
+	{
+		const float preciseNumber = 100;
+		int lowerLimitInt = (int)(lowerLimitFloat * preciseNumber);
+		int upperLimitInt = (int)(upperLimitFloat * preciseNumber);
+
+		float randomNumber = ((float)(RandomGenerator.Next(lowerLimitInt, upperLimitInt)) / preciseNumber);
+		Debug.Log(randomNumber);
+		return randomNumber;
 	}
 
 	private void AddPlatforms()
@@ -160,11 +181,5 @@ public class GameManager : MonoBehaviour {
 		}
 		PlatformList.RemoveRange(0, NumberOfPlatformToAddOrRemove);
 
-	}
-
-	enum PlatformType	
-	{
-		Grass = 0,
-		HorizontalMovingGrass = 1
 	}
 }
