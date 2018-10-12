@@ -8,9 +8,11 @@ public class GameManager : MonoBehaviour {
 
 	public Vector3 CurrentLowestPosition;
 
-	public float SmallestDistantBetweenPlatform = 1;
-	public float BiggestDistantBetweenPlatform = 4;
+	// For finding y position
+	private float SmallestDistantBetweenPlatform = 1.5;
+	private float BiggestDistantBetweenPlatform = 4;
 
+	// For finding x position
 	public float MaxLandingDistant = 1;
 
 	public GameObject GrassPrefab;
@@ -125,6 +127,19 @@ public class GameManager : MonoBehaviour {
 
 	private Vector3 GetRandomPosition(float mostLeftX, float mostRightX, GameObject newPlatFormObject)
 	{
+		//float previousPlaformHalfWidth = BottomPlatForm.GetComponent<SpriteRenderer>().bounds.size.x / 2;
+		//float newPlafromHalfWidth = newPlatFormObject.GetComponent<SpriteRenderer>().bounds.size.x / 2;
+		//float leftLandingXPosition = BottomPlatForm.transform.position.x - previousPlaformHalfWidth - MaxLandingDistant;
+		//float rightLandingXPosition = BottomPlatForm.transform.position.x + previousPlaformHalfWidth - MaxLandingDistant;
+
+		//// Left side
+		//float mostRightXPositionOnLeftSide = leftLandingXPosition - newPlafromHalfWidth;
+		//float mostLeftXPositionOnLeftSide = leftLandingXPosition + newPlafromHalfWidth;
+
+		//// Right side
+		//float mostRightXPositionOnRightSide = leftLandingXPosition - newPlafromHalfWidth;
+		//float mostLeftXPositionOnRIghtSide = leftLandingXPosition + newPlafromHalfWidth;
+
 		// Precision lost when casting to int from float, time 100 to reserve that precision
 		int newMostLeftXInInt = (int)(mostLeftX * 100);
 		int newMostRightXInInt = (int)(mostRightX * 100);
