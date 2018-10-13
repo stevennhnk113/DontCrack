@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114822083811029892}
   m_Layer: 0
   m_Name: HorizontalMovingGrass
-  m_TagString: Untagged
+  m_TagString: HorizontalMovingGrass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,7 +39,7 @@ Transform:
   m_GameObject: {fileID: 1816539662408238}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 2.4930673, z: 0}
-  m_LocalScale: {x: 1.5, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 0.7, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0

@@ -9,11 +9,11 @@ public class GameManager : MonoBehaviour {
 	public Vector3 CurrentLowestPosition;
 
 	// For finding y position
-	private float SmallestDistantBetweenPlatform = 1.5;
+	private float SmallestDistantBetweenPlatform = 1.5f;
 	private float BiggestDistantBetweenPlatform = 4;
 
 	// For finding x position
-	public float MaxLandingDistant = 1;
+	public float MaxLandingDistant = 1.5f;
 
 	public GameObject GrassPrefab;
 	public GameObject HorizontalMovingGrassPrefab;
@@ -48,6 +48,9 @@ public class GameManager : MonoBehaviour {
 		ScreenWidth = ScreenHeight * camera.aspect;
 		MostLeftX = -ScreenWidth / 2;
 		MostRightX = -MostLeftX;
+
+		//Debug.Log("MostLeftX" + MostLeftX);
+		//Debug.Log("MostRightX" + MostRightX);
 
 		// Get the first plat form
 		BottomPlatForm = GameObject.Find("FirstGrass");
@@ -97,7 +100,7 @@ public class GameManager : MonoBehaviour {
 		int selectedGrassType = 0;
 		for(int i = 0; i < InitialNumberOfGrass; i++)
 		{
-			selectedGrassType = randomGenerator.Next(0, 2);
+			selectedGrassType = randomGenerator.Next(1, 3);
 			PlacePlatform((PlatformType)selectedGrassType);
 		}
 	}
@@ -109,53 +112,69 @@ public class GameManager : MonoBehaviour {
 		{
 			case PlatformType.Grass:
 				newPlatfrom = Instantiate(GrassPrefab, transform);
+				CurrentLowestPosition = GetRandomGrassPosition(newPlatfrom);
 				break;
 			case PlatformType.HorizontalMovingGrass:
 				newPlatfrom = Instantiate(HorizontalMovingGrassPrefab, transform);
+				CurrentLowestPosition = GetRandomAnyPosition(newPlatfrom);
 				break;
 			default:
 				newPlatfrom = Instantiate(GrassPrefab, transform);
+				CurrentLowestPosition = GetRandomAnyPosition(newPlatfrom);
 				break;
 		}
 
-		float newPlatformHalfWidth = newPlatfrom.GetComponent<SpriteRenderer>().bounds.size.x / 2;
-		CurrentLowestPosition = newPlatfrom.transform.position = GetRandomPosition(MostLeftX + newPlatformHalfWidth, MostRightX - newPlatformHalfWidth, newPlatfrom);
-
+		newPlatfrom.transform.position = CurrentLowestPosition;
 		BottomPlatForm = newPlatfrom;
 		PlatformList.Add(BottomPlatForm);
 	}
 
-	private Vector3 GetRandomPosition(float mostLeftX, float mostRightX, GameObject newPlatFormObject)
+	private Vector3 GetRandomAnyPosition(GameObject newPlatFormObject)
 	{
-		//float previousPlaformHalfWidth = BottomPlatForm.GetComponent<SpriteRenderer>().bounds.size.x / 2;
-		//float newPlafromHalfWidth = newPlatFormObject.GetComponent<SpriteRenderer>().bounds.size.x / 2;
-		//float leftLandingXPosition = BottomPlatForm.transform.position.x - previousPlaformHalfWidth - MaxLandingDistant;
-		//float rightLandingXPosition = BottomPlatForm.transform.position.x + previousPlaformHalfWidth - MaxLandingDistant;
+		float newPlatformHalfWidth = newPlatFormObject.GetComponent<SpriteRenderer>().bounds.size.x / 2;
+		var xPosition = GetRandomNumberBetweenTwoFloat(MostLeftX + newPlatformHalfWidth, MostRightX - newPlatformHalfWidth);
+		var yPosition = BottomPlatForm.transform.position.y - GetVerticalDistantBetweenPlatform();
+		return new Vector3(xPosition, yPosition);
+	}
 
-		//// Left side
-		//float mostRightXPositionOnLeftSide = leftLandingXPosition - newPlafromHalfWidth;
-		//float mostLeftXPositionOnLeftSide = leftLandingXPosition + newPlafromHalfWidth;
+	private Vector3 GetRandomGrassPosition(GameObject newPlatFormObject)
+	{
+		float xPosition;
+		float newPlatformHalfWidth = newPlatFormObject.GetComponent<SpriteRenderer>().bounds.size.x / 2;
 
-		//// Right side
-		//float mostRightXPositionOnRightSide = leftLandingXPosition - newPlafromHalfWidth;
-		//float mostLeftXPositionOnRIghtSide = leftLandingXPosition + newPlafromHalfWidth;
-
-		// Precision lost when casting to int from float, time 100 to reserve that precision
-		int newMostLeftXInInt = (int)(mostLeftX * 100);
-		int newMostRightXInInt = (int)(mostRightX * 100);
-
-		float xPosition = ((float)(RandomGenerator.Next(newMostLeftXInInt, newMostRightXInInt)) / 100);
-
-		if (BottomPlatForm.transform.position.x * xPosition > 0)
+		if (BottomPlatForm.tag == "Grass")
 		{
-			xPosition = -xPosition;
-		}
+			float previousPlaformHalfWidth = BottomPlatForm.GetComponent<SpriteRenderer>().bounds.size.x / 2;
 
-		//var platformType = newPlatFormObject.GetComponent("Platform")
-		//switch (platformType)
-		//{
-		//	case PlatformType.Grass:
-		//}
+			// Left side
+			float landingXPosition = BottomPlatForm.transform.position.x - previousPlaformHalfWidth - MaxLandingDistant;
+			float mostLeftXPosition = landingXPosition - newPlatformHalfWidth;
+			float mostRightXPosition = landingXPosition + newPlatformHalfWidth;
+			float leftXPosition = GetRandomNumberBetweenTwoFloat(mostLeftXPosition, mostRightXPosition);
+
+			// Right side
+			landingXPosition = BottomPlatForm.transform.position.x + previousPlaformHalfWidth + MaxLandingDistant;
+			mostLeftXPosition = landingXPosition - newPlatformHalfWidth;
+			mostRightXPosition = landingXPosition + newPlatformHalfWidth;
+			float rightXPosition = GetRandomNumberBetweenTwoFloat(mostLeftXPosition, mostRightXPosition);
+
+			if (leftXPosition - newPlatformHalfWidth > MostLeftX && rightXPosition + newPlatformHalfWidth < MostRightX)
+			{
+				xPosition = (RandomLeftOrRight()) ? leftXPosition : rightXPosition;
+			}
+			else if (leftXPosition - newPlatformHalfWidth < MostLeftX)
+			{
+				xPosition = rightXPosition;
+			}
+			else
+			{
+				xPosition = leftXPosition;
+			}
+		}
+		else
+		{
+			xPosition = GetRandomNumberBetweenTwoFloat(MostLeftX + newPlatformHalfWidth, MostRightX - newPlatformHalfWidth);
+		}
 
 		var newYPosition = BottomPlatForm.transform.position.y - GetVerticalDistantBetweenPlatform();
 		return new Vector3(xPosition, newYPosition);
@@ -173,8 +192,20 @@ public class GameManager : MonoBehaviour {
 		int upperLimitInt = (int)(upperLimitFloat * preciseNumber);
 
 		float randomNumber = ((float)(RandomGenerator.Next(lowerLimitInt, upperLimitInt)) / preciseNumber);
-		Debug.Log(randomNumber);
 		return randomNumber;
+	}
+
+	// True is left. false is right
+	private bool RandomLeftOrRight()
+	{
+		if(RandomGenerator.Next(0, 2) == 0)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 	private void AddPlatforms()
